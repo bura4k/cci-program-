@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>Software Engineering — Project Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Project tracker home"><span class="brand-mark">SE</span><span>Software Engineering</span></a>
+    <span class="top-note">PROJECT WORKSPACE</span>
+  </header>
+  <main class="layout">
+    <section class="intro">
+      <div><p class="eyebrow">YOUR WORKSPACE</p><h1>Build something great.</h1><p class="subhead">Keep projects moving, one clear task at a time.</p></div>
+      <button id="add-project" class="button primary">＋ New project</button>
+    </section>
+    <section class="summary" aria-label="Workspace summary">
+      <article class="stat"><span class="stat-label">Projects</span><strong id="project-count">0</strong></article>
+      <article class="stat"><span class="stat-label">Open tasks</span><strong id="open-count">0</strong></article>
+      <article class="stat"><span class="stat-label">Completed</span><strong id="done-count">0</strong></article>
+    </section>
+    <section class="section-head"><div><p class="eyebrow">OVERVIEW</p><h2>Your projects</h2></div><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search projects" aria-label="Search projects"></label></section>
+    <section id="projects" class="project-grid" aria-live="polite"></section>
+  </main>
+  <dialog id="project-dialog">
+    <form id="project-form" method="dialog">
+      <div class="dialog-head"><div><p class="eyebrow">NEW WORKSPACE</p><h2>Create a project</h2></div><button class="icon-button" value="cancel" aria-label="Close">×</button></div>
+      <label>Project name<input name="name" required maxlength="60" placeholder="e.g. Portfolio website"></label>
+      <label>Description<textarea name="description" rows="3" maxlength="180" placeholder="What are you building?"></textarea></label>
+      <div class="dialog-actions"><button class="button secondary" value="cancel">Cancel</button><button class="button primary" value="create">Create project</button></div>
+    </form>
+  </dialog>
+  <template id="project-template">
+    <article class="project-card">
+      <div class="card-top"><span class="project-icon">⌘</span><button class="more" aria-label="Add a task">＋</button></div>
+      <h3></h3><p class="description"></p>
+      <div class="progress-row"><span>Progress</span><span class="progress-text"></span></div><div class="progress-track"><span></span></div>
+      <div class="task-list"></div>
+      <form class="task-form"><input name="task" aria-label="New task" placeholder="Add a task…" maxlength="100" required><button aria-label="Add task">↵</button></form>
+      <div class="card-footer"><span class="task-total"></span><button class="delete-project">Delete project</button></div>
+    </article>
+  </template>
+  <script src="app.js"></script>
+</body>
+</html>
